@@ -9,7 +9,7 @@ x = 200
 y = 200
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.bind(('localhost', 9000))
+sock.bind(('localhost', 8000))
 sock.listen(1)
 conn, addr = sock.accept()
 
@@ -21,7 +21,7 @@ while True:
         if event.type == pygame.MOUSEBUTTONDOWN:
             x, y = pygame.mouse.get_pos()
             conn.send(f"{x},{y}\n".encode())
-    
+        
     # Vérifier si des données sont envoyées par le contrôleur
     try:
         conn.settimeout(0.1)  # Temps d'attente maximal de 0.1 seconde
